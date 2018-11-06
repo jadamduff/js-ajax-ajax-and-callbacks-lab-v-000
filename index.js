@@ -1,5 +1,5 @@
 $(document).ready(function (){
-  let searchRepositories = function() {
+  function searchRepositories() {
     let url = 'https://api.github.com/search/repositories?q=';
     let terms = $('#searchTerms').val().split(' ');
 
