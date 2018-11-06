@@ -17,6 +17,7 @@ $(document).ready(function (){
       for (const repo of response['items']) {
         html += '<ul><li>Repo Name: <a href="' + repo['html_url'] + '">' + repo['name'] + '</a></li><li>' + repo['description'] + '</li><li>Owner Login' + repo['owner']['login'] + '</li><li><img src="' + repo['owner']['avatar_url'] + '" /><li><a href="' + repo['owner']['html_url'] + '">Profile</a></li><li><a href="#" data-repository="' + repo['name'] + '" data-owner="' + repo['owner']['login'] + '" onclick="showCommits(this)">Show Commits</a></li></ul>';
       }
+      html += "</ul>";
       $('#results').html(html);
     });
   };
