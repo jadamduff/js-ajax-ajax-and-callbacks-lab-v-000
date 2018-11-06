@@ -31,7 +31,7 @@ let showCommits = function(el) {
     console.log(response);
     let html = '<ul>';
     for (const repo of response) {
-      html += '<p><ul><li>SHA: ' + repo['sha'] + '</li><li></li></ul></p>'
+      html += '<p><ul><li>SHA: ' + repo['sha'] + '</li></ul></p>'
     }
     html += '</ul>';
   });
