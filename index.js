@@ -34,5 +34,6 @@ let showCommits = function(el) {
       html += '<p><ul><li>SHA: ' + repo['sha'] + '</li></ul></p>'
     }
     html += '</ul>';
+    $('#details').html(html);
   });
 }
