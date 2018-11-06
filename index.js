@@ -1,5 +1,7 @@
 $(document).ready(function (){
-  function searchRepositories() {
+
+  });
+  let searchRepositories = function() {
     let url = 'https://api.github.com/search/repositories?q=';
     let terms = $('#searchTerms').val().split(' ');
 
@@ -19,21 +21,21 @@ $(document).ready(function (){
       }
       html += '</ul>';
       $('#results').html(html);
-
-      let showCommits = function(el) {
-        let url = 'https://api.github.com/repos/' + el.dataset.owner + '/' + el.dataset.repository + '/commits';
-        $.get(url, function(response) {
-          console.log(response);
-          let html = '<ul>';
-          for (const repo of response) {
-            html += '<p><ul><li>SHA: ' + repo['sha'] + '</li></ul></p>'
-          }
-          html += '</ul>';
-          $('#details').html(html);
-        });
-      }
     });
   };
 
   $('#searchBtn').on('click', searchRepositories);
-});
+
+
+let showCommits = function(el) {
+  let url = 'https://api.github.com/repos/' + el.dataset.owner + '/' + el.dataset.repository + '/commits';
+  $.get(url, function(response) {
+    console.log(response);
+    let html = '<ul>';
+    for (const repo of response) {
+      html += '<p><ul><li>SHA: ' + repo['sha'] + '</li></ul></p>'
+    }
+    html += '</ul>';
+    $('#details').html(html);
+  });
+}
