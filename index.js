@@ -21,8 +21,11 @@ $(document).ready(function (){
     });
   };
 
-  let showCommits = function() {
-
+  let showCommits = function(el) {
+    let url = 'https://api.github.com/repos/' + el.dataset.owner + '/' + el.dataset.repository + '/commits';
+    $.get(url, function(response) {
+      console.log(response);
+    });
   }
 
   $('#searchBtn').on('click', searchRepositories);
